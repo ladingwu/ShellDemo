@@ -8,7 +8,6 @@ cmdArgs(){
     echo  'this is a word from sh'
     alias today='date +"%A, %B %-d, %Y"'
     echo "一共输入了 $# 个参数"
-    a = $1
     while [ "$1" != "" ]; do
       echo "剩下 $# 个参数"
       echo "参数：$1"
@@ -74,7 +73,7 @@ main(){
     case $methodName in
         "cmdArgs") 
         echo "$methodName"
-        cmdArgs "$@" 
+        cmdArgs "params" "hha" 
         ;;
         "cmdInput") cmdInput 
         ;;
