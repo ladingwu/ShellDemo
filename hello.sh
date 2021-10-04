@@ -1,23 +1,20 @@
 #!/bin/bash
 
-
-
-
-
 cmdArgs(){
     echo  'this is a word from sh'
     alias today='date +"%A, %B %-d, %Y"'
-    echo "一共输入了 $# 个参数"
+    echo "has input $# params"
+    a="$1"
     while [ "$1" != "" ]; do
-      echo "剩下 $# 个参数"
-      echo "参数：$1"
+      echo " $# params left"
+      echo "params $1"
       shift
     done
 
     if [ $a = '0' ]; then
-        echo '输入是 0'
+        echo 'input is 0'
     else
-        echo '输入不是0'
+        echo 'not 0'
     fi
 }
 
@@ -25,36 +22,36 @@ cmdArgs(){
 
 
 cmdInput(){
-    echo '输入一些文本看看：'
+    echo 'input some text: '
     read text
-    echo "你输入的是 $text"
+    echo "your input is $text"
 }
 
 cmdCase(){
-    echo '输入一些文本看看：'
+    echo 'input some text '
     read text
     case $text in
         1 ) 
         echo 1 ;;
         2 ) echo 2 ;;
-        * ) echo "其他"
+        * ) echo "other"
     esac
 }
 
 cmdWhile(){
     input="a"
     while [ "$input" != "exit" ]; do
-	    echo "请输入"
+	    echo "input please "
         read input
-        echo "当前输入是 $input"
+        echo "current input $input"
         sleep 3
     done
 }
 
 cmdArray(){
     result=( *.sh )
-    echo "数组长度： ${#result[@]} "
-    echo "数组遍历"
+    echo "array length  ${#result[@]} "
+    echo "array"
     for item in  "${result[@]}"; do
         ls -l $item
     done
@@ -83,7 +80,9 @@ main(){
         
         "cmdArray") cmdArray
         ;;
-
+        *)
+        echo "not match"
+        ;;
 
     esac
 }
